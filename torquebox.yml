@@ -5,3 +5,4 @@ application:
 services: 
   UpcaseService: 
     singleton: false
+    thread_count: 5

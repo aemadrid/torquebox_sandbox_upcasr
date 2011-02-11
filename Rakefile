@@ -26,6 +26,7 @@ def descriptor_hash
     "services" => {
       "UpcaseService" => {
         "singleton" => false,
+        "thread_count" => 5,
       }
     }
   }

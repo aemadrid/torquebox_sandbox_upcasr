@@ -6,13 +6,13 @@ class UpcaseService
   def initialize(options={})
     puts "<<< UpcaseService >>> :: initialize : starting ..."
     @halt = false
-    @max = options[:max] || 3
+    @thread_count = options["thread_count"] || 3
     puts "<<< UpcaseService >>> :: initialize : done ..."
   end
 
   def start
     puts "<<< UpcaseService >>> :: start : starting threads..."
-    @queue_threads = (1..@max).each do |idx|
+    @queue_threads = (1..@thread_count).each do |idx|
       puts "<<< UpcaseService >>> :: start : starting thread (#{idx}) ..."
       Thread.new { start_queue idx }
     end
