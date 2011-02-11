@@ -19,6 +19,10 @@ end
 
 def descriptor_hash
   {
+    "application" => {
+      "RACK_ROOT" => ROOT,
+      "RACK_ENV" => ENV["RACK_ENV"] || "development",
+    },
     "services" => {
       "UpcaseService" => {
         "singleton" => false,

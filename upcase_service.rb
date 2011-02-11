@@ -24,7 +24,7 @@ class UpcaseService
     # Notify our queue receiver to stop
     @halt = true
     # Wait for all spawned threads to exit
-    @queue_thread.join
+    @queue_threads.each { |thread| thread.join }
     puts "<<< UpcaseService >>> :: stop : done ..."
   end
 
