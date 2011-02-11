@@ -1,0 +1,4 @@
+--- 
+services: 
+  UpcaseService: 
+    singleton: false
