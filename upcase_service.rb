@@ -11,8 +11,9 @@ class UpcaseService
   end
 
   def start
-    puts "<<< UpcaseService >>> :: start : starting thread..."
+    puts "<<< UpcaseService >>> :: start : starting threads..."
     @queue_threads = (1..@max).each do |idx|
+      puts "<<< UpcaseService >>> :: start : starting thread (#{idx}) ..."
       Thread.new { start_queue idx }
     end
     puts "<<< UpcaseService >>> :: start : done ...."
