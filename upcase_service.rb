@@ -42,9 +42,14 @@ class UpcaseService
 
     while true do
       queue.receive_and_publish(:timeout => 500) do |message|
-        result = message.to_s.upcase
-        puts "<<< UpcaseService >>> :: start_queue (#{idx}) : Received term [#{message}] (#{message.class.name}) and returning [#{result}]"
-        result
+        if message.nil?
+          puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ <<< UpcaseService >>> :: start_queue (#{idx}) : Received NIL : ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+          nil
+        else
+          result = message.to_s.upcase
+          puts "<<< UpcaseService >>> :: start_queue (#{idx}) : Received term [#{message}] (#{message.class.name}) and returning [#{result}]"
+          result
+        end
       end
 
       # Jump out of the loop if we're shutting down
